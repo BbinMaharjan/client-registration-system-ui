@@ -1,0 +1,4 @@
+node_modules/
+src/**/*.d.ts
+scripts/**
+src/services/*
