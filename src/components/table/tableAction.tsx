@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { IconButton, MenuItem } from "@mui/material";
@@ -8,11 +9,15 @@ import { StyledMenu } from "./table.styled";
 interface TableActionProps {
   onEdit?: () => void;
   editAction?: boolean;
+  onDelete?: () => void;
+  deleteAction?: boolean;
 }
 
 const TableAction = ({
   onEdit,
   editAction = true,
+  onDelete,
+  deleteAction = true,
 }: TableActionProps): React.JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -54,6 +59,12 @@ const TableAction = ({
           <MenuItem disableRipple onClick={onEdit}>
             <EditIcon />
             Edit
+          </MenuItem>
+        )}
+        {deleteAction && (
+          <MenuItem disableRipple onClick={onDelete} onMouseDown={handleClose}>
+            <DeleteIcon />
+            Delete
           </MenuItem>
         )}
       </StyledMenu>

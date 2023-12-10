@@ -54,6 +54,13 @@ export const AppServices = {
     return response;
   },
 
+  deleteProduct: async (id: string) => {
+    const response: AxiosResponse = await axios.delete(
+      `${BASE_URL}/product/product/${id}`
+    );
+    return response;
+  },
+
   getClients: async (
     searchKeyword?: string,
     sortOrder?: string,
@@ -88,6 +95,13 @@ export const AppServices = {
     const response: AxiosResponse = await axios.put(
       `${BASE_URL}/client-detail/client-detail/${id}`,
       payload
+    );
+    return response;
+  },
+
+  deleteClient: async (id: string) => {
+    const response: AxiosResponse = await axios.delete(
+      `${BASE_URL}/client-detail/client-detail/${id}`
     );
     return response;
   },

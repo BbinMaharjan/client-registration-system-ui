@@ -1,12 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Stack } from "@mui/material";
-import TableAction from "../../components/table/tableAction";
-import { useNavigate } from "react-router-dom";
-import * as routeUrl from "../../routes/routeUrl";
 import { isEmpty } from "lodash";
+import { useQueryClient } from "react-query";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import DeleteModal from "../../components/delete-modal";
+import TableAction from "../../components/table/tableAction";
+import useBoolean from "../../hooks/useBoolean";
+import * as routeUrl from "../../routes/routeUrl";
+import { AppServices } from "../../services/services";
 
 export const ClientsTableHeader = (tableInfo: any) => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   return [
     {
       Header: "S.N",
@@ -64,6 +70,12 @@ export const ClientsTableHeader = (tableInfo: any) => {
     {
       Header: "Action",
       Cell: ({ row }: any) => {
+        const {
+          value: isConfirmOpen,
+          setFalse: closeConfirmModal,
+          setTrue: openConfirmModal,
+        } = useBoolean(false);
+
         const onEdit = (): void => {
           navigate(`${routeUrl?.UPDATE_CLIENT_FORM.url}`, {
             state: {
@@ -72,7 +84,35 @@ export const ClientsTableHeader = (tableInfo: any) => {
             },
           });
         };
-        return <TableAction onEdit={onEdit} />;
+        const onDelete = async () => {
+          await AppServices.deleteClient(row?.original?.id)
+            .then((response: any) => {
+              toast.success(`${response?.data?.message}`);
+              queryClient.invalidateQueries("getClientData");
+            })
+            .catch((error) => {
+              toast.error(`Something went wrong`);
+            });
+        };
+        return (
+          <>
+            <DeleteModal
+              open={isConfirmOpen}
+              onConfirm={() => {
+                onDelete();
+              }}
+              closeModal={() => {
+                closeConfirmModal();
+              }}
+            />
+            <TableAction
+              onEdit={onEdit}
+              onDelete={() => {
+                openConfirmModal();
+              }}
+            />
+          </>
+        );
       },
     },
   ];

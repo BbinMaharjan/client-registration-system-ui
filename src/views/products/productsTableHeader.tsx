@@ -1,11 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Stack } from "@mui/material";
-import TableAction from "../../components/table/tableAction";
 import { useNavigate } from "react-router-dom";
+import DeleteModal from "../../components/delete-modal";
+import TableAction from "../../components/table/tableAction";
+import useBoolean from "../../hooks/useBoolean";
 import * as routeUrl from "../../routes/routeUrl";
+import { useQueryClient } from "react-query";
+import { AppServices } from "../../services/services";
+import { toast } from "react-toastify";
 
 export const ProductsTableHeader = (tableInfo: any) => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   return [
     {
       Header: "S.N",
@@ -51,6 +57,12 @@ export const ProductsTableHeader = (tableInfo: any) => {
     {
       Header: "Action",
       Cell: ({ row }: any) => {
+        const {
+          value: isConfirmOpen,
+          setFalse: closeConfirmModal,
+          setTrue: openConfirmModal,
+        } = useBoolean(false);
+
         const onEdit = (): void => {
           navigate(`${routeUrl?.UPDATE_PRODUCTS_FORM.url}`, {
             state: {
@@ -59,7 +71,36 @@ export const ProductsTableHeader = (tableInfo: any) => {
             },
           });
         };
-        return <TableAction onEdit={onEdit} />;
+
+        const onDelete = async () => {
+          await AppServices.deleteProduct(row?.original?.id)
+            .then((response: any) => {
+              toast.success(`Delete Successful`);
+              queryClient.invalidateQueries("getProductData");
+            })
+            .catch((error) => {
+              toast.error(`Something went wrong`);
+            });
+        };
+        return (
+          <>
+            <DeleteModal
+              open={isConfirmOpen}
+              onConfirm={() => {
+                onDelete();
+              }}
+              closeModal={() => {
+                closeConfirmModal();
+              }}
+            />
+            <TableAction
+              onEdit={onEdit}
+              onDelete={() => {
+                openConfirmModal();
+              }}
+            />
+          </>
+        );
       },
     },
   ];
