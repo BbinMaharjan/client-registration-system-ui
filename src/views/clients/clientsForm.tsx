@@ -63,7 +63,7 @@ const ClientsForm = (): React.JSX.Element => {
     middleName: ClientDetail?.middleName,
     lastName: ClientDetail?.lastName,
     address: ClientDetail?.address,
-    phoneNumber: String(ClientDetail?.phoneNumber),
+    phoneNumber: ClientDetail?.phoneNumber,
     email: ClientDetail?.email,
     productId: {
       value: ClientDetail?.productId,
@@ -74,7 +74,7 @@ const ClientsForm = (): React.JSX.Element => {
   const handleSubmit = async (values: any): Promise<void> => {
     const payload = {
       ...values,
-      phoneNumber: Number(values?.phoneNumber),
+      phoneNumber: String(values?.phoneNumber),
       productId: values?.productId?.value,
     };
     if (isEdit) {
@@ -196,7 +196,7 @@ const ClientsForm = (): React.JSX.Element => {
                           variant="outlined"
                           required
                           type="number"
-                          max={15}
+                          max={16}
                         />
                       </Grid>
 

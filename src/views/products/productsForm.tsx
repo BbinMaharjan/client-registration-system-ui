@@ -180,7 +180,7 @@ const ProductsForm = (): React.JSX.Element => {
                           label="Price"
                           variant="outlined"
                           type="number"
-                          max={10}
+                          max={8}
                           required
                         />
                       </Grid>
