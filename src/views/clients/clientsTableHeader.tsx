@@ -161,7 +161,7 @@ export const ClientsTableHeader = (tableInfo: any) => {
                 openConfirmModal();
               }}
               optionAction={true}
-              optionTitle="Download Pdf"
+              optionTitle="Download PDF"
               onOptionClick={downloadPdf}
               optionActionIcon={<PictureAsPdfIcon />}
             />
