@@ -105,8 +105,8 @@ export const ClientsTableHeader = (tableInfo: any) => {
           <div>
           <div><h2>Client Registration System</h2></div>
           <hr/>
-          <div >
-          <div><h5>Full Name:</h5> <span>${
+          <div>
+          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Full Name:</h5> <span style="margin-left:1rem">${
             !isEmpty(row?.original.firstName)
               ? String(row?.original.firstName)
               : ""
@@ -119,12 +119,16 @@ export const ClientsTableHeader = (tableInfo: any) => {
               ? String(row?.original.lastName)
               : ""
           }</span> </div>
-          <div><h5>Address:</h5> <span>${row?.original.address}</span> </div>
-          <div><h5>Email:</h5> <span>${row?.original.email}</span> </div>
-          <div><h5>Phone Number:</h5> <span>${
+          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Address:</h5> <span style="margin-left:1rem">${
+            row?.original.address
+          }</span> </div>
+          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Email:</h5> <span style="margin-left:1rem">${
+            row?.original.email
+          }</span> </div>
+          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Phone Number:</h5> <span style="margin-left:1rem">${
             row?.original.phoneNumber
           }</span> </div>
-          <div><h5>Product:</h5> <span>${
+          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Product:</h5> <span style="margin-left:1rem">${
             row?.original.productName
           }</span> </div>
           </div>
