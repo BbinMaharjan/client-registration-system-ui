@@ -80,7 +80,9 @@ const ProductsForm = (): React.JSX.Element => {
           navigate(-1);
         })
         .catch((error) => {
-          toast.error(`Something went wrong`);
+          toast.error(
+            error?.response?.data?.error?.message || `Something went wrong`
+          );
         });
     } else {
       await AppServices.postProduct(payload)
@@ -90,7 +92,9 @@ const ProductsForm = (): React.JSX.Element => {
           navigate(-1);
         })
         .catch((error) => {
-          toast.error(`Something went wrong`);
+          toast.error(
+            error?.response?.data?.error?.message || `Something went wrong`
+          );
         });
     }
   };

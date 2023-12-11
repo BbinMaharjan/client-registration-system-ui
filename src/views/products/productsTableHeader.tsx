@@ -79,7 +79,9 @@ export const ProductsTableHeader = (tableInfo: any) => {
               queryClient.invalidateQueries("getProductData");
             })
             .catch((error) => {
-              toast.error(`Something went wrong`);
+              toast.error(
+                error?.response?.data?.error?.message || `Something went wrong`
+              );
             });
         };
         return (

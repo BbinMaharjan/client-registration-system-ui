@@ -9,8 +9,17 @@ export const handleMouseDownPassword = (event: any) => {
   event.preventDefault();
 };
 
-export const FirstTextUpperCase = (text: string | any) => {
-  return text?.charAt(0)?.toUpperCase() + text?.slice(1);
+export const handleDownloadFile = (fileName: string, fileContent: string) => {
+  const fileArray = fileName.split(".");
+  const fileExtensionType = fileArray[fileArray.length - 1];
+
+  const fileExtension = fileExtensionType;
+
+  const aElement = document.createElement("a");
+  let downloadLink = `data:application/${fileExtension};base64,` + fileContent;
+  aElement.setAttribute("download", fileName);
+  aElement.setAttribute("href", downloadLink);
+  aElement.click();
 };
 
 export const OptionsDropdown = (data: any) => {

@@ -14,6 +14,10 @@ import { useGetClient } from "../../services";
 import { TableParamsType } from "../../types/commonTypes";
 import { InitialGlobalValues } from "../../utils/constants/initialValues";
 import { ClientsTableHeader } from "./clientsTableHeader";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import { AppServices } from "../../services/services";
+import { toast } from "react-toastify";
+import { handleDownloadFile } from "../../utils/globalUtils";
 
 const initialValues = {
   searchKeyword: "",
@@ -57,6 +61,22 @@ const Clients = (): React.JSX.Element => {
     });
   };
 
+  const handleExport = async (): Promise<void> => {
+    await AppServices.postClientExport()
+      .then((response: any) => {
+        handleDownloadFile(
+          `${response?.data?.name}.xlsx`,
+          response?.data?.content
+        );
+        toast.success(`Export Excel Successful`);
+      })
+      .catch((error) => {
+        toast.error(
+          error?.response?.data?.error?.message || `Something went wrong`
+        );
+      });
+  };
+
   return (
     <Fragment>
       <Box>
@@ -94,19 +114,34 @@ const Clients = (): React.JSX.Element => {
             label="Search"
             onChange={debouncedSearchChangeHandler}
           />
-          <AnimateButton>
-            <Button
-              size="medium"
-              type="button"
-              variant="contained"
-              color="secondary"
-              fullWidth
-              onClick={handleAdd}
-              startIcon={<AddIcon />}
-            >
-              Add Client
-            </Button>
-          </AnimateButton>
+          <Stack gap={2} sx={{ py: "1rem" }} direction="row">
+            <AnimateButton>
+              <Button
+                size="medium"
+                type="button"
+                variant="contained"
+                color="secondary"
+                fullWidth
+                onClick={handleExport}
+                startIcon={<CloudDownloadIcon />}
+              >
+                Export
+              </Button>
+            </AnimateButton>
+            <AnimateButton>
+              <Button
+                size="medium"
+                type="button"
+                variant="contained"
+                color="secondary"
+                fullWidth
+                onClick={handleAdd}
+                startIcon={<AddIcon />}
+              >
+                Add Client
+              </Button>
+            </AnimateButton>
+          </Stack>
         </Stack>
       </Box>
 

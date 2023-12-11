@@ -85,7 +85,9 @@ const ClientsForm = (): React.JSX.Element => {
           navigate(-1);
         })
         .catch((error) => {
-          toast.error(`Something went wrong`);
+          toast.error(
+            error?.response?.data?.error?.message || `Something went wrong`
+          );
         });
     } else {
       await AppServices.postClient(payload)
@@ -95,7 +97,9 @@ const ClientsForm = (): React.JSX.Element => {
           navigate(-1);
         })
         .catch((error) => {
-          toast.error(`Something went wrong`);
+          toast.error(
+            error?.response?.data?.error?.message || `Something went wrong`
+          );
         });
     }
   };

@@ -105,4 +105,11 @@ export const AppServices = {
     );
     return response;
   },
+
+  postClientExport: async () => {
+    const response: AxiosResponse = await axios.post(
+      `${BASE_URL}/client-detail/export-all-client-detail`
+    );
+    return response;
+  },
 };

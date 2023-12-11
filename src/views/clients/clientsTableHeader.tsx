@@ -91,7 +91,9 @@ export const ClientsTableHeader = (tableInfo: any) => {
               queryClient.invalidateQueries("getClientData");
             })
             .catch((error) => {
-              toast.error(`Something went wrong`);
+              toast.error(
+                error?.response?.data?.error?.message || `Something went wrong`
+              );
             });
         };
         return (
