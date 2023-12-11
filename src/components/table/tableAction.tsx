@@ -11,6 +11,10 @@ interface TableActionProps {
   editAction?: boolean;
   onDelete?: () => void;
   deleteAction?: boolean;
+  onOptionClick?: any;
+  optionAction?: boolean;
+  optionTitle?: string;
+  optionActionIcon?: React.ReactNode;
 }
 
 const TableAction = ({
@@ -18,6 +22,10 @@ const TableAction = ({
   editAction = true,
   onDelete,
   deleteAction = true,
+  onOptionClick,
+  optionAction = false,
+  optionTitle,
+  optionActionIcon,
 }: TableActionProps): React.JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -59,6 +67,18 @@ const TableAction = ({
           <MenuItem disableRipple onClick={onEdit}>
             <EditIcon />
             Edit
+          </MenuItem>
+        )}
+        {optionAction && (
+          <MenuItem
+            disableRipple
+            onClick={() => {
+              onOptionClick();
+              setAnchorEl(null);
+            }}
+          >
+            {optionActionIcon}
+            {optionTitle}
           </MenuItem>
         )}
         {deleteAction && (

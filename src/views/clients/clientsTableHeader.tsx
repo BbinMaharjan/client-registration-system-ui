@@ -9,6 +9,8 @@ import TableAction from "../../components/table/tableAction";
 import useBoolean from "../../hooks/useBoolean";
 import * as routeUrl from "../../routes/routeUrl";
 import { AppServices } from "../../services/services";
+import html2pdf from "html2pdf.js";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 
 export const ClientsTableHeader = (tableInfo: any) => {
   const navigate = useNavigate();
@@ -96,6 +98,48 @@ export const ClientsTableHeader = (tableInfo: any) => {
               );
             });
         };
+
+        const downloadPdf = () => {
+          // Convert JSON to HTML (format as needed)
+          const htmlContent = `
+          <div>
+          <div><h2>Client Registration System</h2></div>
+          <hr/>
+          <div >
+          <div><h5>Full Name:</h5> <span>${
+            !isEmpty(row?.original.firstName)
+              ? String(row?.original.firstName)
+              : ""
+          } ${
+            !isEmpty(row?.original.middleName)
+              ? String(row?.original.middleName)
+              : ""
+          } ${
+            !isEmpty(row?.original.lastName)
+              ? String(row?.original.lastName)
+              : ""
+          }</span> </div>
+          <div><h5>Address:</h5> <span>${row?.original.address}</span> </div>
+          <div><h5>Email:</h5> <span>${row?.original.email}</span> </div>
+          <div><h5>Phone Number:</h5> <span>${
+            row?.original.phoneNumber
+          }</span> </div>
+          <div><h5>Product:</h5> <span>${
+            row?.original.productName
+          }</span> </div>
+          </div>
+          </div>
+          `;
+
+          // Create PDF
+          html2pdf(htmlContent, {
+            margin: 10,
+            filename: "ClientDetail.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+          });
+        };
         return (
           <>
             <DeleteModal
@@ -112,6 +156,10 @@ export const ClientsTableHeader = (tableInfo: any) => {
               onDelete={() => {
                 openConfirmModal();
               }}
+              optionAction={true}
+              optionTitle="Download Pdf"
+              onOptionClick={downloadPdf}
+              optionActionIcon={<PictureAsPdfIcon />}
             />
           </>
         );
