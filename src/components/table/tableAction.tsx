@@ -9,7 +9,7 @@ import { StyledMenu } from "./table.styled";
 interface TableActionProps {
   onEdit?: () => void;
   editAction?: boolean;
-  onDelete?: () => void;
+  onDelete?: any;
   deleteAction?: boolean;
   onOptionClick?: any;
   optionAction?: boolean;
@@ -82,7 +82,14 @@ const TableAction = ({
           </MenuItem>
         )}
         {deleteAction && (
-          <MenuItem disableRipple onClick={onDelete} onMouseDown={handleClose}>
+          <MenuItem
+            disableRipple
+            onClick={() => {
+              onDelete();
+              setAnchorEl(null);
+            }}
+            // onMouseDown={handleClose}
+          >
             <DeleteIcon />
             Delete
           </MenuItem>
