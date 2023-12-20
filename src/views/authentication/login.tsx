@@ -38,12 +38,12 @@ const Login = () => {
 
   const handleSubmit = (values: any) => {
     if (
-      values?.email === "edwardnewgate@yopmail.com" &&
-      values?.password === "Edward@12345"
+      values?.email === "sanjay.yadav@yorksj.ac.uk" &&
+      values?.password === "surya@123"
     ) {
       const payload = {
-        fullName: "Edward Newgate",
-        email: "edwardnewgate@yopmail.com",
+        fullName: "Sanjay Yadav",
+        email: "sanjay.yadav@yorksj.ac.uk",
       };
       storage.set("user", payload);
       setErrorMessage("");
