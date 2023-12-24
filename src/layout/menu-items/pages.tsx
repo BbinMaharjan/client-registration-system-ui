@@ -1,10 +1,10 @@
 // assets
-import { IconShoppingCart, IconUserPlus } from "@tabler/icons";
+import { IconBrandProducthunt, IconUserCircle } from "@tabler/icons";
 
 // constant
 const icons = {
-  IconShoppingCart,
-  IconUserPlus,
+  IconBrandProducthunt,
+  IconUserCircle,
 };
 
 import * as routeUrl from "../../routes/routeUrl";
@@ -21,7 +21,7 @@ const pages = {
       title: routeUrl?.PRODUCTS.name,
       url: routeUrl?.PRODUCTS.url,
       type: "item",
-      icon: icons.IconShoppingCart,
+      icon: icons.IconBrandProducthunt,
       breadcrumbs: false,
     },
     {
@@ -29,7 +29,7 @@ const pages = {
       title: routeUrl?.CLIENT.name,
       url: routeUrl?.CLIENT.url,
       type: "item",
-      icon: icons.IconUserPlus,
+      icon: icons.IconUserCircle,
       breadcrumbs: false,
     },
   ],

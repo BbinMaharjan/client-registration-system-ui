@@ -1,7 +1,7 @@
 const config = {
   basename: "/",
   defaultPath: "/",
-  fontFamily: `'Roboto', sans-serif`,
+  fontFamily: `'cursive', sans-serif`,
   borderRadius: 6,
 };
 

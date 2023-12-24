@@ -1,22 +1,21 @@
 // assets
-import { IconDashboard } from "@tabler/icons";
-
+import { IconDashboard, IconHome } from "@tabler/icons";
 // constant
-const icons = { IconDashboard };
+const icons = { IconDashboard, IconHome };
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
 const dashboard = {
-  id: "dashboard",
+  id: "home",
   title: "",
   type: "group",
   children: [
     {
-      id: "dashboard",
-      title: "Dashboard",
+      id: "home",
+      title: "Home",
       type: "item",
       url: "/",
-      icon: icons.IconDashboard,
+      icon: icons.IconHome,
       breadcrumbs: false,
     },
   ],

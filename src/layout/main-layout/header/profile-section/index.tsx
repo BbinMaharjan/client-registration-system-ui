@@ -81,13 +81,13 @@ const ProfileSection = () => {
 
   return (
     <>
-      <Typography
+      {/* <Typography
         variant="body1"
         color={theme.palette.primary.main}
         marginRight={"8px"}
       >
         {Today}
-      </Typography>
+      </Typography> */}
       <Chip
         sx={{
           height: "48px",
@@ -158,7 +158,7 @@ const ProfileSection = () => {
                   boxShadow
                   shadow={theme.shadows[16]}
                 >
-                  <Box sx={{ px: 1, pt: 1 }}>
+                  {/* <Box sx={{ px: 1, pt: 1 }}>
                     <Stack
                       direction="column"
                       spacing={0.1}
@@ -182,7 +182,7 @@ const ProfileSection = () => {
                         {userDetails?.email}
                       </Typography>
                     </Stack>
-                  </Box>
+                  </Box> */}
                   <Box sx={{ p: 1 }}>
                     <List
                       component="nav"

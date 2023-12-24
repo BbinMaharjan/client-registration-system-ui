@@ -1,12 +1,11 @@
 const DASHBOARD = {
-  url: "/dashboard",
-  name: "Dashboard",
-  guardName: "Dashboard",
+  url: "/home",
+  name: "Home",
 };
 
 const PRODUCTS = {
   url: "/products",
-  name: "Products Management",
+  name: "Products",
 };
 const CREATE_PRODUCTS_FORM = {
   url: "/products/form/create-products-details",
@@ -19,7 +18,7 @@ const UPDATE_PRODUCTS_FORM = {
 
 const CLIENT = {
   url: "/client",
-  name: "Clients Management",
+  name: "Clients",
 };
 const CREATE_CLIENT_FORM = {
   url: "/client/form/create-client-details",
