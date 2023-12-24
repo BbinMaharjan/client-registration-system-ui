@@ -18,6 +18,7 @@ import { LOGIN_VALIDATION } from "../../utils/validations/validation";
 import MainAuthWrapper from "./loginWrapper";
 
 import * as storage from "../../utils/storage";
+import { LoginUser } from "../../utils/constants/common";
 // ================================|| LOGIN ||================================ //
 
 const Login = () => {
@@ -38,12 +39,12 @@ const Login = () => {
 
   const handleSubmit = (values: any) => {
     if (
-      values?.email === "sanjay.yadav@yorksj.ac.uk" &&
-      values?.password === "surya@123"
+      values?.email === LoginUser?.email &&
+      values?.password === LoginUser?.password
     ) {
       const payload = {
-        fullName: "Sanjay Yadav",
-        email: "sanjay.yadav@yorksj.ac.uk",
+        fullName: LoginUser?.name,
+        email: LoginUser?.email,
       };
       storage.set("user", payload);
       setErrorMessage("");
@@ -53,7 +54,7 @@ const Login = () => {
     }
   };
   return (
-    <MainAuthWrapper title={"Enter Your Credentials "}>
+    <MainAuthWrapper title={"Enter Your Email And Password"}>
       <Formik
         initialValues={{
           email: "",
@@ -79,7 +80,7 @@ const Login = () => {
               sx={{ ...theme.typography.customInput }}
             >
               <InputLabel htmlFor="outlined-adornment-email-login">
-                Email Address
+                Email
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-email-login"

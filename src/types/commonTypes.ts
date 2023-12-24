@@ -6,8 +6,3 @@ export interface TableParamsType {
   skipCount: number;
   maxResultCount: number;
 }
-
-export interface OptionType {
-  label: string | number | boolean;
-  value: string | number | boolean;
-}
