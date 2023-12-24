@@ -1,5 +1,5 @@
 // project imports
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { AccountCircle, Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
   FormControl,
@@ -7,7 +7,7 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
-  OutlinedInput,
+  FilledInput,
 } from "@mui/material";
 import { Box, useTheme } from "@mui/system";
 import { Formik } from "formik";
@@ -82,14 +82,13 @@ const Login = () => {
               <InputLabel htmlFor="outlined-adornment-email-login">
                 Email
               </InputLabel>
-              <OutlinedInput
+              <FilledInput
                 id="outlined-adornment-email-login"
                 type="email"
                 value={values.email}
                 name="email"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                label="Email Address"
                 inputProps={{}}
               />
               {touched.email && errors.email && (
@@ -110,7 +109,7 @@ const Login = () => {
               <InputLabel htmlFor="outlined-adornment-password-login">
                 Password
               </InputLabel>
-              <OutlinedInput
+              <FilledInput
                 id="outlined-adornment-password-login"
                 type={showPassword ? "text" : "password"}
                 value={values.password}
@@ -130,7 +129,7 @@ const Login = () => {
                     </IconButton>
                   </InputAdornment>
                 }
-                label="Password"
+                // label="Password"
                 inputProps={{}}
               />
               {touched.password && errors.password && (

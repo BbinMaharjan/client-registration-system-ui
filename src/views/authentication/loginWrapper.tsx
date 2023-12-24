@@ -3,14 +3,18 @@ import { Box, Grid, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Logo from "../../components/Logo";
 import MainCard from "../../components/cards/mainCard";
+import backgroundImage from "../../assets/images/Background.jpg"; // Replace with the actual path to your image
 
 // ==============================|| AUTHENTICATION 1 WRAPPER ||============================== //
 
 const AuthWrapper = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
   minHeight: "100vh",
+  backgroundImage: `url(${backgroundImage})`,
+  backgroundSize: "cover", // Adjust this property as needed
+  backgroundPosition: "center", // Adjust this property as needed
+  /* You can add more background-related properties as needed */
 }));
-
 const MainAuthWrapper = ({ title, children, ...other }: any) => {
   return (
     <AuthWrapper>
@@ -89,6 +93,3 @@ const MainAuthWrapper = ({ title, children, ...other }: any) => {
 };
 
 export default MainAuthWrapper;
-function useMediaQuery(arg0: string) {
-  throw new Error("Function not implemented.");
-}
