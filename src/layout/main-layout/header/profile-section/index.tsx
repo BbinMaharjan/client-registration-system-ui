@@ -163,7 +163,7 @@ const ProfileSection = () => {
                   boxShadow
                   shadow={theme.shadows[16]}
                 >
-                  {/* <Box sx={{ px: 1, pt: 1 }}>
+                  <Box sx={{ px: 1, pt: 1 }}>
                     <Stack
                       direction="column"
                       spacing={0.1}
@@ -187,7 +187,7 @@ const ProfileSection = () => {
                         {userDetails?.email}
                       </Typography>
                     </Stack>
-                  </Box> */}
+                  </Box>
                   <Box sx={{ p: 1 }}>
                     <List
                       component="nav"
