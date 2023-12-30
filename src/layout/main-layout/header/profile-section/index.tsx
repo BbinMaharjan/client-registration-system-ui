@@ -110,17 +110,22 @@ const ProfileSection = () => {
         }}
         icon={
           <Avatar
-            src={User1}
             sx={{
-              ...theme.typography.mediumAvatar,
-              margin: "8px 0 8px 8px !important",
+              bgcolor: theme.palette.primary.main,
               cursor: "pointer",
+              color: "#fff",
+              borderRadius: "25px",
             }}
+            variant="rounded"
             ref={anchorRef}
             aria-controls={open ? "menu-list-grow" : undefined}
             aria-haspopup="true"
-            color="inherit"
-          />
+            onClick={handleToggle}
+          >
+            <Typography variant="h5" color="white">
+              {userDetails?.fullName?.charAt(0)}
+            </Typography>
+          </Avatar>
         }
         variant="outlined"
         ref={anchorRef}

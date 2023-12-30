@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 
 // material-ui
-import { Avatar, Box, ButtonBase } from "@mui/material";
+import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 // project imports
@@ -10,7 +10,6 @@ import LogoSection from "../logo-section";
 import ProfileSection from "./profile-section";
 
 // assets
-import { IconMenu2 } from "@tabler/icons";
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
@@ -35,7 +34,7 @@ const Header = ({ handleLeftDrawerToggle }: any) => {
         >
           <LogoSection />
         </Box>
-        <ButtonBase sx={{ borderRadius: "12px", overflow: "hidden" }}>
+        {/* <ButtonBase sx={{ borderRadius: "12px", overflow: "hidden" }}>
           <Avatar
             variant="rounded"
             sx={{
@@ -54,7 +53,7 @@ const Header = ({ handleLeftDrawerToggle }: any) => {
           >
             <IconMenu2 stroke={1.5} size="1.3rem" />
           </Avatar>
-        </ButtonBase>
+        </ButtonBase> */}
       </Box>
 
       {/* header search */}

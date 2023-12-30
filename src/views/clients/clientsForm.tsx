@@ -240,7 +240,7 @@ const ClientsForm = (): React.JSX.Element => {
                             type="button"
                             variant="outlined"
                             onClick={handleCancel}
-                            sx={{ mt: 2 }}
+                            sx={{ mt: 2, color: theme.palette.primary.main }}
                             startIcon={<CloseIcon />}
                           >
                             Cancel

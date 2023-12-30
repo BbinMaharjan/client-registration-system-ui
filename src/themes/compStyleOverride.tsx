@@ -7,6 +7,7 @@ export default function componentStyleOverrides(theme: any) {
         root: {
           fontWeight: 500,
           borderRadius: "4px",
+          color: "white",
         },
       },
     },

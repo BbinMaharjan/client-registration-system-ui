@@ -94,6 +94,34 @@ const Clients = (): React.JSX.Element => {
               >
                 {routeUrl?.CLIENT.name}
               </Typography>
+              <Stack gap={2} sx={{ py: "1rem" }} direction="row">
+                <AnimateButton>
+                  <Button
+                    size="medium"
+                    type="button"
+                    variant="contained"
+                    color="secondary"
+                    fullWidth
+                    onClick={handleExport}
+                    startIcon={<CloudDownloadIcon />}
+                  >
+                    Export
+                  </Button>
+                </AnimateButton>
+                <AnimateButton>
+                  <Button
+                    size="medium"
+                    type="button"
+                    variant="contained"
+                    color="secondary"
+                    fullWidth
+                    onClick={handleAdd}
+                    startIcon={<AddIcon />}
+                  >
+                    Add Client
+                  </Button>
+                </AnimateButton>
+              </Stack>
             </Stack>
           </Grid>
         </Grid>
@@ -105,54 +133,25 @@ const Clients = (): React.JSX.Element => {
           sx={{ py: "1rem" }}
           direction="row"
           justifyContent="space-between"
-          alignItems="center"
+          alignItems="start"
         >
           <SearchInput
-            width={"30%"}
+            width={"20%"}
             name="searchKeyword"
             placeholder="Search"
             label="Search"
             onChange={debouncedSearchChangeHandler}
+          />{" "}
+          <DataTable
+            data={ClientData?.items ?? []}
+            count={Number(ClientData?.totalCount)}
+            columns={ClientsTableHeader(tableInfo)}
+            tableInfo={tableInfo}
+            loading={ClientDataStatus || "success"}
+            setTableInfo={setTableInfo}
           />
-          <Stack gap={2} sx={{ py: "1rem" }} direction="row">
-            <AnimateButton>
-              <Button
-                size="medium"
-                type="button"
-                variant="contained"
-                color="secondary"
-                fullWidth
-                onClick={handleExport}
-                startIcon={<CloudDownloadIcon />}
-              >
-                Export
-              </Button>
-            </AnimateButton>
-            <AnimateButton>
-              <Button
-                size="medium"
-                type="button"
-                variant="contained"
-                color="secondary"
-                fullWidth
-                onClick={handleAdd}
-                startIcon={<AddIcon />}
-              >
-                Add Client
-              </Button>
-            </AnimateButton>
-          </Stack>
         </Stack>
       </Box>
-
-      <DataTable
-        data={ClientData?.items ?? []}
-        count={Number(ClientData?.totalCount)}
-        columns={ClientsTableHeader(tableInfo)}
-        tableInfo={tableInfo}
-        loading={ClientDataStatus || "success"}
-        setTableInfo={setTableInfo}
-      />
     </Fragment>
   );
 };

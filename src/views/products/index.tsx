@@ -74,6 +74,19 @@ const Products = (): React.JSX.Element => {
               >
                 {routeUrl?.PRODUCTS.name}
               </Typography>
+              <AnimateButton>
+                <Button
+                  size="medium"
+                  type="button"
+                  variant="contained"
+                  color="secondary"
+                  fullWidth
+                  onClick={handleAdd}
+                  startIcon={<AddIcon />}
+                >
+                  Add Product
+                </Button>
+              </AnimateButton>
             </Stack>
           </Grid>
         </Grid>
@@ -84,40 +97,26 @@ const Products = (): React.JSX.Element => {
           gap={2}
           sx={{ py: "1rem" }}
           direction="row"
-          justifyContent="space-between"
-          alignItems="center"
+          justifyContent="space-around"
+          alignItems="start"
         >
           <SearchInput
-            width={"30%"}
+            width={"20%"}
             name="searchKeyword"
             placeholder="Search"
             label="Search"
             onChange={debouncedSearchChangeHandler}
           />
-          <AnimateButton>
-            <Button
-              size="medium"
-              type="button"
-              variant="contained"
-              color="secondary"
-              fullWidth
-              onClick={handleAdd}
-              startIcon={<AddIcon />}
-            >
-              Add Product
-            </Button>
-          </AnimateButton>
+          <DataTable
+            data={ProductData?.items ?? []}
+            count={Number(ProductData?.totalCount)}
+            columns={ProductsTableHeader(tableInfo)}
+            tableInfo={tableInfo}
+            loading={ProductDataStatus || "success"}
+            setTableInfo={setTableInfo}
+          />
         </Stack>
       </Box>
-
-      <DataTable
-        data={ProductData?.items ?? []}
-        count={Number(ProductData?.totalCount)}
-        columns={ProductsTableHeader(tableInfo)}
-        tableInfo={tableInfo}
-        loading={ProductDataStatus || "success"}
-        setTableInfo={setTableInfo}
-      />
     </Fragment>
   );
 };

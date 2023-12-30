@@ -66,7 +66,7 @@ const DataTable = React.memo(
                     <TableRow
                       {...headerGroup.getHeaderGroupProps()}
                       sx={{
-                        backgroundColor: "#565c65",
+                        backgroundColor: theme.palette.primary.main,
                       }}
                     >
                       {headerGroup.headers.map((column: any) => (
