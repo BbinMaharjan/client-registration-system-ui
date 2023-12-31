@@ -9,16 +9,21 @@ import { useTheme } from "@mui/material/styles";
  */
 
 import logo from "../assets/images/logo.png";
+import { height, width } from "@mui/system";
 // ==============================|| LOGO SVG ||============================== //
+interface LogoModal {
+  width?: string;
+  height?: string;
+}
 
-const Logo = () => {
+const Logo = ({ width, height }: LogoModal) => {
   return (
     /**
      * if you want to use image instead of svg uncomment following, and comment out <svg> element.
      *
      *
      */
-    <img src={logo} alt="Berry" width="100" />
+    <img src={logo} alt="Berry" width={width ?? "100"} height={height ?? ""} />
   );
 };
 

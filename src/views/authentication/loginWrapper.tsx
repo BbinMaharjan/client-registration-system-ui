@@ -1,5 +1,13 @@
 // material-ui
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  CssBaseline,
+  Grid,
+  Paper,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Logo from "../../components/Logo";
 import MainCard from "../../components/cards/mainCard";
@@ -17,78 +25,98 @@ const AuthWrapper = styled("div")(({ theme }) => ({
 }));
 const MainAuthWrapper = ({ title, children, ...other }: any) => {
   return (
-    <AuthWrapper>
+    <Grid container component="main" sx={{ height: "100vh" }}>
+      <CssBaseline />
       <Grid
-        container
-        direction="column"
-        justifyContent="flex-end"
-        sx={{ minHeight: "100vh" }}
-      >
-        <Grid item xs={12}>
-          <Grid
-            container
-            justifyContent="center"
-            alignItems="center"
-            sx={{ minHeight: "calc(100vh - 68px)" }}
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          backgroundImage: "url(https://source.unsplash.com/random?wallpapers)",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: (t) =>
+            t.palette.mode === "light"
+              ? t.palette.grey[50]
+              : t.palette.grey[900],
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Box
+          sx={{
+            my: 8,
+            mx: 4,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Logo width="200" height="100" />
+          <Typography
+            component="h1"
+            variant="h5"
+            sx={{ mt: "4rem", mb: "2rem" }}
           >
-            <Grid item sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
-              <MainCard
-                sx={{
-                  maxWidth: { xs: 400, lg: 475 },
-                  margin: { xs: 2.5, md: 3 },
-                  "& > *": {
-                    flexGrow: 1,
-                    flexBasis: "50%",
-                  },
-                }}
-                content={false}
-                {...other}
-              >
-                <Box sx={{ p: { xs: 2, sm: 3, xl: 5 } }}>
-                  <Grid
-                    container
-                    spacing={2}
-                    alignItems="center"
-                    justifyContent="center"
-                  >
-                    <Grid item sx={{ mb: 3 }}>
-                      <Logo />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Grid
-                        container
-                        direction={"row"}
-                        alignItems="center"
-                        justifyContent="center"
-                      >
-                        <Grid item>
-                          <Stack
-                            alignItems="center"
-                            justifyContent="center"
-                            spacing={1}
-                          >
-                            <Typography
-                              variant="caption"
-                              fontSize="16px"
-                              textAlign={"inherit"}
-                            >
-                              {title}
-                            </Typography>
-                          </Stack>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                    <Grid item xs={12}>
-                      {children}
-                    </Grid>
-                  </Grid>
-                </Box>
-              </MainCard>
+            {title}
+          </Typography>
+          {children}
+          {/* <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 1 }}
+          >
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign In
+            </Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
             </Grid>
-          </Grid>
-        </Grid>
+            <Copyright sx={{ mt: 5 }} />
+          </Box> */}
+        </Box>
       </Grid>
-    </AuthWrapper>
+    </Grid>
   );
 };
 

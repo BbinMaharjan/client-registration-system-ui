@@ -1,5 +1,5 @@
 // project imports
-import { AccountCircle, Visibility, VisibilityOff } from "@mui/icons-material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Button,
   FormControl,
@@ -7,7 +7,7 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
-  FilledInput,
+  OutlinedInput,
 } from "@mui/material";
 import { Box, useTheme } from "@mui/system";
 import { Formik } from "formik";
@@ -17,8 +17,8 @@ import AnimateButton from "../../components/extended/animateButton";
 import { LOGIN_VALIDATION } from "../../utils/validations/validation";
 import MainAuthWrapper from "./loginWrapper";
 
-import * as storage from "../../utils/storage";
 import { LoginUser } from "../../utils/constants/common";
+import * as storage from "../../utils/storage";
 // ================================|| LOGIN ||================================ //
 
 const Login = () => {
@@ -82,13 +82,14 @@ const Login = () => {
               <InputLabel htmlFor="outlined-adornment-email-login">
                 Email
               </InputLabel>
-              <FilledInput
+              <OutlinedInput
                 id="outlined-adornment-email-login"
                 type="email"
                 value={values.email}
                 name="email"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                label="Email Address"
                 inputProps={{}}
               />
               {touched.email && errors.email && (
@@ -109,7 +110,7 @@ const Login = () => {
               <InputLabel htmlFor="outlined-adornment-password-login">
                 Password
               </InputLabel>
-              <FilledInput
+              <OutlinedInput
                 id="outlined-adornment-password-login"
                 type={showPassword ? "text" : "password"}
                 value={values.password}
@@ -129,7 +130,7 @@ const Login = () => {
                     </IconButton>
                   </InputAdornment>
                 }
-                // label="Password"
+                label="Password"
                 inputProps={{}}
               />
               {touched.password && errors.password && (
@@ -164,7 +165,7 @@ const Login = () => {
                   variant="contained"
                   color="secondary"
                 >
-                  Sign in
+                  LOG IN
                 </Button>
               </AnimateButton>
             </Box>

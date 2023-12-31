@@ -39,7 +39,7 @@ const NavGroup = ({ item }: any): React.ReactElement => {
             subheader={
               item.title != null && (
                 <Typography
-                  sx={{ ...theme.typography.menuCaption, color: "#d1bd04" }}
+                  sx={{ ...theme.typography.menuCaption, color: "#257502" }}
                 >
                   {item.title}
                   {item.caption != null && (
