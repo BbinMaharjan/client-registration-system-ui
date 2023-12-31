@@ -118,7 +118,7 @@ const Clients = (): React.JSX.Element => {
                     onClick={handleAdd}
                     startIcon={<AddIcon />}
                   >
-                    Add Client
+                    Add
                   </Button>
                 </AnimateButton>
               </Stack>
@@ -136,22 +136,22 @@ const Clients = (): React.JSX.Element => {
           alignItems="start"
         >
           <SearchInput
-            width={"20%"}
+            width={"100%"}
             name="searchKeyword"
             placeholder="Search"
             label="Search"
             onChange={debouncedSearchChangeHandler}
           />{" "}
-          <DataTable
-            data={ClientData?.items ?? []}
-            count={Number(ClientData?.totalCount)}
-            columns={ClientsTableHeader(tableInfo)}
-            tableInfo={tableInfo}
-            loading={ClientDataStatus || "success"}
-            setTableInfo={setTableInfo}
-          />
         </Stack>
       </Box>
+      <DataTable
+        data={ClientData?.items ?? []}
+        count={Number(ClientData?.totalCount)}
+        columns={ClientsTableHeader(tableInfo)}
+        tableInfo={tableInfo}
+        loading={ClientDataStatus || "success"}
+        setTableInfo={setTableInfo}
+      />
     </Fragment>
   );
 };

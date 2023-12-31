@@ -84,7 +84,7 @@ const Products = (): React.JSX.Element => {
                   onClick={handleAdd}
                   startIcon={<AddIcon />}
                 >
-                  Add Product
+                  Add
                 </Button>
               </AnimateButton>
             </Stack>
@@ -101,22 +101,22 @@ const Products = (): React.JSX.Element => {
           alignItems="start"
         >
           <SearchInput
-            width={"20%"}
+            width={"100%"}
             name="searchKeyword"
             placeholder="Search"
             label="Search"
             onChange={debouncedSearchChangeHandler}
           />
-          <DataTable
-            data={ProductData?.items ?? []}
-            count={Number(ProductData?.totalCount)}
-            columns={ProductsTableHeader(tableInfo)}
-            tableInfo={tableInfo}
-            loading={ProductDataStatus || "success"}
-            setTableInfo={setTableInfo}
-          />
         </Stack>
       </Box>
+      <DataTable
+        data={ProductData?.items ?? []}
+        count={Number(ProductData?.totalCount)}
+        columns={ProductsTableHeader(tableInfo)}
+        tableInfo={tableInfo}
+        loading={ProductDataStatus || "success"}
+        setTableInfo={setTableInfo}
+      />
     </Fragment>
   );
 };
