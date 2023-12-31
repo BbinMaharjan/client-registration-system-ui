@@ -136,7 +136,7 @@ const Clients = (): React.JSX.Element => {
           alignItems="start"
         >
           <SearchInput
-            width={"100%"}
+            width={"30%"}
             name="searchKeyword"
             placeholder="Search"
             label="Search"

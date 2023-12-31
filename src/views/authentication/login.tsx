@@ -165,7 +165,7 @@ const Login = () => {
                   variant="contained"
                   color="secondary"
                 >
-                  LOG IN
+                  SIGN UP
                 </Button>
               </AnimateButton>
             </Box>

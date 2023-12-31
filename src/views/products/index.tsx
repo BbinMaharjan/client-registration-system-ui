@@ -97,11 +97,11 @@ const Products = (): React.JSX.Element => {
           gap={2}
           sx={{ py: "1rem" }}
           direction="row"
-          justifyContent="space-around"
+          justifyContent="start"
           alignItems="start"
         >
           <SearchInput
-            width={"100%"}
+            width={"30%"}
             name="searchKeyword"
             placeholder="Search"
             label="Search"
