@@ -75,6 +75,13 @@ export const AppServices = {
     );
     return response.data;
   },
+  getAllClients: async () => {
+    const response: AxiosResponse = await axios.get(
+      `${BASE_URL}/client-detail/paged-and-sorted-client-detail?SkipCount=0&MaxResultCount=1000
+      `
+    );
+    return response.data;
+  },
 
   getClientById: async (clientId: string) => {
     const response: AxiosResponse = await axios.get(
@@ -109,6 +116,29 @@ export const AppServices = {
   postClientExport: async () => {
     const response: AxiosResponse = await axios.post(
       `${BASE_URL}/client-detail/export-all-client-detail`
+    );
+    return response;
+  },
+
+  getTransitions: async (
+    searchKeyword?: string,
+    sortOrder?: string,
+    productCategoryId?: string,
+    productId?: string,
+    sorting?: string,
+    skipCount?: number,
+    maxResultCount?: number
+  ) => {
+    const response: AxiosResponse = await axios.get(
+      `${BASE_URL}/transaction-management/paged-and-sorted-sell-trasaction-list?SearchKeyword=${searchKeyword}&SkipCount=${skipCount}&MaxResultCount=${maxResultCount}
+      `
+    );
+    return response.data;
+  },
+  postTransitions: async (payload: any) => {
+    const response: AxiosResponse = await axios.post(
+      `${BASE_URL}/transaction-management/sell-transaction`,
+      payload
     );
     return response;
   },

@@ -108,3 +108,46 @@ export const useGetClientById = (clientId: string) => {
   );
   return responseData;
 };
+
+export const useGetAllClient = () => {
+  const responseData = useQuery(["getAllClientData"], async () => {
+    return await AppServices.getAllClients();
+  });
+  return responseData;
+};
+
+export const useGetTransition = (
+  searchKeyword: string,
+  sortOrder: string,
+  productCategoryId: string,
+  productId: string,
+  sorting: string,
+  skipCount: number,
+  maxResultCount: number
+) => {
+  const responseData = useQuery(
+    [
+      "getTransitionData",
+      searchKeyword,
+      sortOrder,
+      productCategoryId,
+      productId,
+      sorting,
+      skipCount,
+      maxResultCount,
+    ],
+    async () => {
+      return await AppServices.getTransitions(
+        searchKeyword,
+        sortOrder,
+        productCategoryId,
+        productId,
+        sorting,
+        skipCount,
+        maxResultCount
+      );
+    }
+  );
+
+  return responseData;
+};

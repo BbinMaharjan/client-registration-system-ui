@@ -20,6 +20,11 @@ const ClientsForm = Loadable(
   lazy(() => import("../views/clients/clientsForm"))
 );
 
+const Transitions = Loadable(lazy(() => import("../views/transaction")));
+const TransitionsForm = Loadable(
+  lazy(() => import("../views/transaction/transitionsForm"))
+);
+
 import * as storage from "../utils/storage";
 import { Navigate, Outlet } from "react-router-dom";
 // ==============================|| MAIN ROUTING ||============================== //
@@ -71,6 +76,18 @@ const MainRoutes = {
     {
       path: routeUrl?.UPDATE_CLIENT_FORM.url,
       element: <ClientsForm />,
+    },
+    {
+      path: routeUrl?.TRANSITIONS.url,
+      element: <Transitions />,
+    },
+    {
+      path: routeUrl?.CREATE_TRANSITIONS_FORM.url,
+      element: <TransitionsForm />,
+    },
+    {
+      path: routeUrl?.UPDATE_TRANSITIONS_FORM.url,
+      element: <TransitionsForm />,
     },
   ],
 };

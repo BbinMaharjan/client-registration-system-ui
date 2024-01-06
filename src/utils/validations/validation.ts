@@ -27,3 +27,10 @@ export const CLIENT_VALIDATION = Yup.object().shape({
     .matches(/^[0-9]*$/, "Invalid Phone Number"),
   email: Yup.string().required("Email Required").email("Invalid Email"),
 });
+
+export const TRANSITIONS_VALIDATION = Yup.object().shape({
+  clientId: Yup.object().required("Client Required").nullable(),
+  productIdId: Yup.object().required("Product Required").nullable(),
+  quantity: Yup.string().required("Quantity Required"),
+  sellPrice: Yup.string().required("Sell Price Required"),
+});

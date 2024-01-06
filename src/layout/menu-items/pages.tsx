@@ -1,10 +1,11 @@
 // assets
-import { IconBrandProducthunt, IconUserCircle } from "@tabler/icons";
+import { IconPackage, IconUsers, IconArrowsTransferUp } from "@tabler/icons";
 
 // constant
 const icons = {
-  IconBrandProducthunt,
-  IconUserCircle,
+  IconPackage,
+  IconUsers,
+  IconArrowsTransferUp,
 };
 
 import * as routeUrl from "../../routes/routeUrl";
@@ -21,7 +22,7 @@ const pages = {
       title: routeUrl?.CLIENT.name,
       url: routeUrl?.CLIENT.url,
       type: "item",
-      icon: icons.IconUserCircle,
+      icon: icons.IconUsers,
       breadcrumbs: false,
     },
     {
@@ -29,7 +30,15 @@ const pages = {
       title: routeUrl?.PRODUCTS.name,
       url: routeUrl?.PRODUCTS.url,
       type: "item",
-      icon: icons.IconBrandProducthunt,
+      icon: icons.IconPackage,
+      breadcrumbs: false,
+    },
+    {
+      id: "transitionsManagement",
+      title: routeUrl?.TRANSITIONS.name,
+      url: routeUrl?.TRANSITIONS.url,
+      type: "item",
+      icon: icons.IconArrowsTransferUp,
       breadcrumbs: false,
     },
   ],
