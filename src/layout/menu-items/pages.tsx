@@ -17,19 +17,19 @@ const pages = {
   type: "group",
   children: [
     {
-      id: "productsManagement",
-      title: routeUrl?.PRODUCTS.name,
-      url: routeUrl?.PRODUCTS.url,
-      type: "item",
-      icon: icons.IconBrandProducthunt,
-      breadcrumbs: false,
-    },
-    {
       id: "clientsManagement",
       title: routeUrl?.CLIENT.name,
       url: routeUrl?.CLIENT.url,
       type: "item",
       icon: icons.IconUserCircle,
+      breadcrumbs: false,
+    },
+    {
+      id: "productsManagement",
+      title: routeUrl?.PRODUCTS.name,
+      url: routeUrl?.PRODUCTS.url,
+      type: "item",
+      icon: icons.IconBrandProducthunt,
       breadcrumbs: false,
     },
   ],

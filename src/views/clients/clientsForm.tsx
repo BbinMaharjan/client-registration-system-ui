@@ -34,7 +34,6 @@ const initialValues = {
   address: "",
   phoneNumber: "",
   email: "",
-  productId: null,
 };
 
 const ClientsForm = (): React.JSX.Element => {
@@ -46,17 +45,7 @@ const ClientsForm = (): React.JSX.Element => {
   const record = location?.state?.record;
   const isEdit = location?.state?.formStatus === "Update";
 
-  const { data: ProductsList } = useGetAllProduct();
-
   const { data: ClientDetail, isLoading } = useGetClientById(record?.id);
-
-  const ProductsListOption =
-    ProductsList?.items?.map((item: any) => {
-      return {
-        label: item?.name,
-        value: item?.id,
-      };
-    }) ?? [];
 
   const EditData = {
     firstName: ClientDetail?.firstName,
@@ -65,17 +54,12 @@ const ClientsForm = (): React.JSX.Element => {
     address: ClientDetail?.address,
     phoneNumber: ClientDetail?.phoneNumber,
     email: ClientDetail?.email,
-    productId: {
-      value: ClientDetail?.productId,
-      label: ClientDetail?.productName,
-    },
   };
 
   const handleSubmit = async (values: any): Promise<void> => {
     const payload = {
       ...values,
       phoneNumber: String(values?.phoneNumber),
-      productId: values?.productId?.value,
     };
     if (isEdit) {
       await AppServices.putClient(record?.id, payload)
@@ -211,17 +195,6 @@ const ClientsForm = (): React.JSX.Element => {
                           label="Email"
                           variant="outlined"
                           required
-                        />
-                      </Grid>
-
-                      <Grid item xs={2} sm={4} md={4}>
-                        <FormControl
-                          control="select"
-                          name="productId"
-                          label="Products"
-                          variant="outlined"
-                          required
-                          options={ProductsListOption}
                         />
                       </Grid>
                     </Grid>

@@ -54,7 +54,7 @@ const Login = () => {
     }
   };
   return (
-    <MainAuthWrapper title={"Enter Your Email And Password"}>
+    <MainAuthWrapper title={"Enter Your Credential"}>
       <Formik
         initialValues={{
           email: "",

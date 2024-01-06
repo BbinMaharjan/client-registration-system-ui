@@ -41,7 +41,7 @@ const CustomPagination = (props: Props) => {
       page={Number(tableInfo?.pageNo) - 1}
       rowsPerPage={Number(tableInfo?.maxResultCount)}
       rowsPerPageOptions={PAGE_SIZE_OPTION}
-      sx={{ fontSize: "1.4rem" }}
+      sx={{ fontSize: "1.4rem" }} // Adding textAlign: 'left'
     />
   );
 };

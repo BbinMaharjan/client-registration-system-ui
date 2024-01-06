@@ -7,6 +7,7 @@ import {
   DialogContent,
   Typography,
   styled,
+  useTheme,
 } from "@mui/material";
 import React from "react";
 import AnimateButton from "../extended/animateButton";
@@ -32,6 +33,7 @@ const DeleteModal = React.memo(
     closeModal,
     ...reset
   }: ModelProps): React.JSX.Element => {
+    const theme = useTheme();
     const handleCancel = (): void => {
       closeModal();
     };
@@ -59,6 +61,7 @@ const DeleteModal = React.memo(
               loadingPosition="start"
               onClick={handleCancel}
               startIcon={<CloseIcon />}
+              sx={{ color: theme.palette.primary.main }}
               {...reset}
             >
               Cancel

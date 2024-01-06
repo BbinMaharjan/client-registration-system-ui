@@ -146,7 +146,7 @@ const Clients = (): React.JSX.Element => {
       </Box>
       <DataTable
         data={ClientData?.items ?? []}
-        count={Number(ClientData?.totalCount)}
+        count={Number(ClientData?.totalCount) ?? 0}
         columns={ClientsTableHeader(tableInfo)}
         tableInfo={tableInfo}
         loading={ClientDataStatus || "success"}
