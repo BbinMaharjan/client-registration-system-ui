@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // material-ui
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, Stack, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 // third-party
@@ -63,21 +63,32 @@ const ProfileSection = () => {
 
   return (
     <>
-      <Typography
-        component="span"
-        variant="h4"
-        sx={{ fontWeight: 600, fontSize: "1.2rem" }}
-        color={theme.palette.primary.main}
-        marginRight={"8px"}
-      >
-        {userDetails?.fullName}
-      </Typography>
+      <Stack direction="column" alignItems="start">
+        <Typography
+          component="span"
+          variant="h4"
+          sx={{ fontWeight: 600, fontSize: "1rem" }}
+          color={theme.palette.primary.main}
+          marginRight={"8px"}
+        >
+          {userDetails?.fullName}
+        </Typography>
+        <Typography
+          component="span"
+          variant="body1"
+          sx={{ fontWeight: 100 }}
+          color={theme.palette.secondary.main}
+          marginRight={"8px"}
+        >
+          {userDetails?.email}
+        </Typography>
+      </Stack>
       <Avatar
         sx={{
           bgcolor: theme.palette.primary.main,
           cursor: "pointer",
           color: "#fff",
-          borderRadius: "25px",
+          borderRadius: "40px",
         }}
         variant="rounded"
         ref={anchorRef}
