@@ -14,7 +14,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 
 // third-party
-import { IconLogout } from "@tabler/icons";
+import CancelPresentationIcon from "@mui/icons-material/CancelPresentation";
 import { BrowserView, MobileView } from "react-device-detect";
 import PerfectScrollbar from "react-perfect-scrollbar";
 // project imports
@@ -60,12 +60,12 @@ const Sidebar = ({ drawerOpen, drawerToggle }: any) => {
             onClick={handleLogout}
           >
             <ListItemIcon sx={{ my: "auto", minWidth: 18 }}>
-              <IconLogout stroke={1.5} size="1.3rem" />
+              <CancelPresentationIcon />
             </ListItemIcon>
             <ListItemText
               primary={
                 <Typography variant="body1" color="inherit">
-                  LOG OUT
+                  Exit
                 </Typography>
               }
               sx={{
