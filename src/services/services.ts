@@ -33,7 +33,7 @@ export const AppServices = {
 
   getAllProducts: async () => {
     const response: AxiosResponse = await axios.get(
-      `${BASE_URL}/product/paged-and-sorted-product-list?SkipCount=0&MaxResultCount=1000
+      `${BASE_URL}/client-detail/product-category-list
       `
     );
     return response.data;

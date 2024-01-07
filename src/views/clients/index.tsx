@@ -129,14 +129,14 @@ const Clients = (): React.JSX.Element => {
 
       <Box>
         <Stack
-          gap={2}
-          sx={{ py: "1rem" }}
+          gap={1}
+          sx={{ py: "0.5rem" }}
           direction="row"
           justifyContent="space-between"
           alignItems="start"
         >
           <SearchInput
-            width={"20%"}
+            width={"25%"}
             name="searchKeyword"
             placeholder="Search"
             label="Search"

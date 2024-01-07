@@ -16,14 +16,14 @@ const pages = {
   title: "",
   type: "group",
   children: [
-    {
-      id: "productsManagement",
-      title: routeUrl?.PRODUCTS.name,
-      url: routeUrl?.PRODUCTS.url,
-      type: "item",
-      icon: icons.IconBrandProducthunt,
-      breadcrumbs: false,
-    },
+    // {
+    //   id: "productsManagement",
+    //   title: routeUrl?.PRODUCTS.name,
+    //   url: routeUrl?.PRODUCTS.url,
+    //   type: "item",
+    //   icon: icons.IconBrandProducthunt,
+    //   breadcrumbs: false,
+    // },
     {
       id: "clientsManagement",
       title: routeUrl?.CLIENT.name,

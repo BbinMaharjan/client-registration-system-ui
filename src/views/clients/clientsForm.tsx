@@ -34,7 +34,7 @@ const initialValues = {
   address: "",
   phoneNumber: "",
   email: "",
-  productId: null,
+  productCategoryId: null,
 };
 
 const ClientsForm = (): React.JSX.Element => {
@@ -46,15 +46,15 @@ const ClientsForm = (): React.JSX.Element => {
   const record = location?.state?.record;
   const isEdit = location?.state?.formStatus === "Update";
 
-  const { data: ProductsList } = useGetAllProduct();
+  const { data: ProductsCategoryList } = useGetAllProduct();
 
   const { data: ClientDetail, isLoading } = useGetClientById(record?.id);
 
-  const ProductsListOption =
-    ProductsList?.items?.map((item: any) => {
+  const ProductsCategoryListOption =
+    ProductsCategoryList?.map((item: any) => {
       return {
-        label: item?.name,
-        value: item?.id,
+        label: item?.productCategoryName,
+        value: item?.productCategoryId,
       };
     }) ?? [];
 
@@ -65,8 +65,8 @@ const ClientsForm = (): React.JSX.Element => {
     address: ClientDetail?.address,
     phoneNumber: ClientDetail?.phoneNumber,
     email: ClientDetail?.email,
-    productId: {
-      value: ClientDetail?.productId,
+    productCategoryId: {
+      value: ClientDetail?.productCategoryId,
       label: ClientDetail?.productName,
     },
   };
@@ -75,7 +75,7 @@ const ClientsForm = (): React.JSX.Element => {
     const payload = {
       ...values,
       phoneNumber: String(values?.phoneNumber),
-      productId: values?.productId?.value,
+      productCategoryId: values?.productCategoryId?.value,
     };
     if (isEdit) {
       await AppServices.putClient(record?.id, payload)
@@ -217,11 +217,11 @@ const ClientsForm = (): React.JSX.Element => {
                       <Grid item xs={2} sm={4} md={4}>
                         <FormControl
                           control="select"
-                          name="productId"
-                          label="Products"
+                          name="productCategoryId"
+                          label="Product Category"
                           variant="outlined"
                           required
-                          options={ProductsListOption}
+                          options={ProductsCategoryListOption}
                         />
                       </Grid>
                     </Grid>
