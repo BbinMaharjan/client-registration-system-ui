@@ -26,7 +26,7 @@ import FormLoader from "../../components/formLoader";
 import * as routeUrl from "../../routes/routeUrl";
 import { useGetAllClient, useGetAllProduct } from "../../services";
 import { AppServices } from "../../services/services";
-import { TRANSITIONS_VALIDATION } from "../../utils/validations/validation";
+import { TRANSACTION_VALIDATION } from "../../utils/validations/validation";
 
 const initialValues = {
   clientId: null,
@@ -100,7 +100,7 @@ const TransitionsForm = (): React.JSX.Element => {
   };
 
   function handleCancel(): void {
-    navigate(`${routeUrl?.TRANSITIONS.url}`);
+    navigate(`${routeUrl?.TRANSACTION.url}`);
   }
 
   return (
@@ -124,7 +124,7 @@ const TransitionsForm = (): React.JSX.Element => {
                 variant="h1"
                 fontSize={25}
               >
-                {`${location?.state?.formStatus} ${routeUrl?.CREATE_TRANSITIONS_FORM.name}`}
+                {`${location?.state?.formStatus} ${routeUrl?.CREATE_TRANSACTION_FORM.name}`}
               </Typography>
             </Box>
           </Grid>
@@ -140,7 +140,7 @@ const TransitionsForm = (): React.JSX.Element => {
                 enableReinitialize
                 initialValues={initialValues}
                 onSubmit={handleSubmit}
-                // validationSchema={TRANSITIONS_VALIDATION}
+                // validationSchema={TRANSACTION_VALIDATION}
               >
                 {(formikProps) => (
                   <Form noValidate>

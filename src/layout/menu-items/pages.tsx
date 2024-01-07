@@ -35,8 +35,8 @@ const pages = {
     },
     {
       id: "transitionsManagement",
-      title: routeUrl?.TRANSITIONS.name,
-      url: routeUrl?.TRANSITIONS.url,
+      title: routeUrl?.TRANSACTION.name,
+      url: routeUrl?.TRANSACTION.url,
       type: "item",
       icon: icons.IconArrowsTransferUp,
       breadcrumbs: false,

@@ -54,7 +54,7 @@ const Transitions = (): React.JSX.Element => {
   );
 
   const handleAdd = (): void => {
-    navigate(`${routeUrl?.CREATE_TRANSITIONS_FORM.url}`, {
+    navigate(`${routeUrl?.CREATE_TRANSACTION_FORM.url}`, {
       state: { formStatus: "Create" },
     });
   };
@@ -74,7 +74,7 @@ const Transitions = (): React.JSX.Element => {
                 variant="h1"
                 fontSize={25}
               >
-                {routeUrl?.TRANSITIONS.name}
+                {routeUrl?.TRANSACTION.name}
               </Typography>
               <AnimateButton>
                 <Button

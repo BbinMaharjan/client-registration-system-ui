@@ -78,15 +78,15 @@ const MainRoutes = {
       element: <ClientsForm />,
     },
     {
-      path: routeUrl?.TRANSITIONS.url,
+      path: routeUrl?.TRANSACTION.url,
       element: <Transitions />,
     },
     {
-      path: routeUrl?.CREATE_TRANSITIONS_FORM.url,
+      path: routeUrl?.CREATE_TRANSACTION_FORM.url,
       element: <TransitionsForm />,
     },
     {
-      path: routeUrl?.UPDATE_TRANSITIONS_FORM.url,
+      path: routeUrl?.UPDATE_TRANSACTION_FORM.url,
       element: <TransitionsForm />,
     },
   ],

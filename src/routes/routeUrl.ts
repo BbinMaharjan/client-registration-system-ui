@@ -26,17 +26,17 @@ const UPDATE_PRODUCTS_FORM = {
   url: "/products-manager/form/update-product-details",
   name: "Product Details",
 };
-const TRANSITIONS = {
-  url: "/transitions-manager",
-  name: "Transitions",
+const TRANSACTION = {
+  url: "/transactions-manager",
+  name: "Sell Transaction",
 };
-const CREATE_TRANSITIONS_FORM = {
-  url: "/transitions-manager/form/create-transition-details",
-  name: "Transition Details",
+const CREATE_TRANSACTION_FORM = {
+  url: "/transactions-manager/form/create-transactions-details",
+  name: "Sell Transaction Details",
 };
-const UPDATE_TRANSITIONS_FORM = {
-  url: "/transitions-manager/form/update-transition-details",
-  name: "Transition Details",
+const UPDATE_TRANSACTION_FORM = {
+  url: "/transactions-manager/form/update-transactions-details",
+  name: "Sell Transaction Details",
 };
 
 // User Management
@@ -49,7 +49,7 @@ export {
   CLIENT,
   CREATE_CLIENT_FORM,
   UPDATE_CLIENT_FORM,
-  TRANSITIONS,
-  CREATE_TRANSITIONS_FORM,
-  UPDATE_TRANSITIONS_FORM,
+  TRANSACTION,
+  CREATE_TRANSACTION_FORM,
+  UPDATE_TRANSACTION_FORM,
 };
