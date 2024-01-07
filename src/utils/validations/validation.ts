@@ -26,5 +26,5 @@ export const CLIENT_VALIDATION = Yup.object().shape({
     .required("Phone Number Required")
     .matches(/^[0-9]*$/, "Invalid Phone Number"),
   email: Yup.string().required("Email Required").email("Invalid Email"),
-  productId: Yup.object().required("Product Required").nullable(),
+  productCategoryId: Yup.array().min(1, "Product Category Required"),
 });

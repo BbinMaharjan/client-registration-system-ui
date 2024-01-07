@@ -66,8 +66,8 @@ export const ClientsTableHeader = (tableInfo: any) => {
       accessor: "phoneNumber",
     },
     {
-      Header: "Product Name",
-      accessor: "productName",
+      Header: "Product Category",
+      accessor: "productCategoryName",
     },
     {
       Header: "Action",

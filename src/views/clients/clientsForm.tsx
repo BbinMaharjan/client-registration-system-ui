@@ -34,7 +34,7 @@ const initialValues = {
   address: "",
   phoneNumber: "",
   email: "",
-  productCategoryId: null,
+  productCategoryId: [],
 };
 
 const ClientsForm = (): React.JSX.Element => {
@@ -65,17 +65,19 @@ const ClientsForm = (): React.JSX.Element => {
     address: ClientDetail?.address,
     phoneNumber: ClientDetail?.phoneNumber,
     email: ClientDetail?.email,
-    productCategoryId: {
-      value: ClientDetail?.productCategoryId,
-      label: ClientDetail?.productName,
-    },
+    // productCategoryId: {
+    //   value: ClientDetail?.productCategoryId,
+    //   label: ClientDetail?.productName,
+    // },
   };
 
   const handleSubmit = async (values: any): Promise<void> => {
     const payload = {
       ...values,
       phoneNumber: String(values?.phoneNumber),
-      productCategoryId: values?.productCategoryId?.value,
+      productCategoryId: values?.productCategoryId?.map(
+        (item: any) => item.value
+      ),
     };
     if (isEdit) {
       await AppServices.putClient(record?.id, payload)
@@ -216,12 +218,12 @@ const ClientsForm = (): React.JSX.Element => {
 
                       <Grid item xs={2} sm={4} md={4}>
                         <FormControl
-                          control="select"
+                          control="multiSelect"
                           name="productCategoryId"
                           label="Product Category"
                           variant="outlined"
-                          required
                           options={ProductsCategoryListOption}
+                          required
                         />
                       </Grid>
                     </Grid>
