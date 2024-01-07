@@ -44,7 +44,7 @@ const TransitionsForm = (): React.JSX.Element => {
   const record = location?.state?.record;
   const isEdit = location?.state?.formStatus === "Update";
 
-  const { data: Clients, isLoading } = useGetAllClient();
+  const { data: ClientsList, isLoading } = useGetAllClient();
 
   const { data: ProductsList } = useGetAllProduct();
 
@@ -57,7 +57,7 @@ const TransitionsForm = (): React.JSX.Element => {
     }) ?? [];
 
   const ClientsOption =
-    Clients?.map((item: any) => {
+    ClientsList?.items?.map((item: any) => {
       return {
         label: `${!isEmpty(item?.firstName) ? String(item?.firstName) : ""} ${
           !isEmpty(item?.middleName) ? String(item?.middleName) : ""

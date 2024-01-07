@@ -125,9 +125,7 @@ export const ClientsTableHeader = (tableInfo: any) => {
           <div style="display: flex; flex-direction: row; align-items: center; "><h5>Phone Number:</h5> <span style="margin-left:1rem">${
             row?.original.phoneNumber
           }</span> </div>
-          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Product:</h5> <span style="margin-left:1rem">${
-            row?.original.productName
-          }</span> </div>
+       
           </div>
           </div>
           `;
