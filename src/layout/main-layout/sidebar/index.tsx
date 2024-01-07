@@ -2,24 +2,37 @@
 import PropTypes from "prop-types";
 
 // material-ui
-import { Box, Drawer, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Drawer,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 // third-party
+import { IconLogout } from "@tabler/icons";
 import { BrowserView, MobileView } from "react-device-detect";
 import PerfectScrollbar from "react-perfect-scrollbar";
-
 // project imports
+import { useSelector } from "react-redux";
 import { drawerWidth } from "../../../store/constant";
+import * as storage from "../../../utils/storage";
 import LogoSection from "../logo-section";
 import MenuList from "./menu-list";
-
 // ==============================|| SIDEBAR DRAWER ||============================== //
 
-const Sidebar = ({ drawerOpen, drawerToggle, window }: any) => {
+const Sidebar = ({ drawerOpen, drawerToggle }: any) => {
   const theme: any = useTheme();
+  const customization = useSelector((state: any) => state.customization);
   const matchUpMd = useMediaQuery(theme.breakpoints.up("md"));
-
+  const handleLogout = () => {
+    storage.clear();
+    window.location.replace(`/auth/login`);
+  };
   const drawer = (
     <>
       <Box sx={{ display: { xs: "block", md: "none" } }}>
@@ -37,6 +50,32 @@ const Sidebar = ({ drawerOpen, drawerToggle, window }: any) => {
           }}
         >
           <MenuList />
+          <ListItemButton
+            sx={{
+              borderRadius: `${customization.borderRadius}px`,
+              mb: 0.5,
+              alignItems: "flex-start",
+              backgroundColor: "inherit",
+            }}
+            onClick={handleLogout}
+          >
+            <ListItemIcon sx={{ my: "auto", minWidth: 18 }}>
+              <IconLogout stroke={1.5} size="1.3rem" />
+            </ListItemIcon>
+            <ListItemText
+              primary={
+                <Typography variant="body1" color="inherit">
+                  LOG OUT
+                </Typography>
+              }
+              sx={{
+                fontSize: "1.2rem",
+                fontWeight: "medium",
+                letterSpacing: 0,
+                marginLeft: "2rem",
+              }}
+            />
+          </ListItemButton>
         </PerfectScrollbar>
       </BrowserView>
       <MobileView>

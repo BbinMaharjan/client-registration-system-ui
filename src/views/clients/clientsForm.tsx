@@ -65,10 +65,10 @@ const ClientsForm = (): React.JSX.Element => {
     address: ClientDetail?.address,
     phoneNumber: ClientDetail?.phoneNumber,
     email: ClientDetail?.email,
-    // productCategoryId: {
-    //   value: ClientDetail?.productCategoryId,
-    //   label: ClientDetail?.productName,
-    // },
+    productCategoryId: ClientDetail?.productCategory?.map((item: any) => ({
+      label: item?.productCategoryName,
+      value: item?.productCategoryId,
+    })),
   };
 
   const handleSubmit = async (values: any): Promise<void> => {

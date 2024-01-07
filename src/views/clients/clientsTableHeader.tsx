@@ -68,6 +68,19 @@ export const ClientsTableHeader = (tableInfo: any) => {
     {
       Header: "Product Category",
       accessor: "productCategoryName",
+      // Cell: ({ row }: any) => {
+      //   return (
+      //     <div>
+      //       {row.original.productCategory.map((item: any, index: number) => (
+      //         <span key={item.id}>
+      //           {" "}
+      //           {item?.productCategory.name}
+      //           {index !== row.original.productCategory.length - 1 ? "," : ""}
+      //         </span>
+      //       ))}
+      //     </div>
+      //   );
+      // },
     },
     {
       Header: "Action",
@@ -128,7 +141,7 @@ export const ClientsTableHeader = (tableInfo: any) => {
           <div style="display: flex; flex-direction: row; align-items: center; "><h5>Phone Number:</h5> <span style="margin-left:1rem">${
             row?.original.phoneNumber
           }</span> </div>
-          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Product:</h5> <span style="margin-left:1rem">${
+          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Product Category:</h5> <span style="margin-left:1rem">${
             row?.original.productName
           }</span> </div>
           </div>
