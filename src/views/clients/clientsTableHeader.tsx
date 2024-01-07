@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import { Stack } from "@mui/material";
+import html2pdf from "html2pdf.js";
 import { isEmpty } from "lodash";
 import { useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +11,6 @@ import TableAction from "../../components/table/tableAction";
 import useBoolean from "../../hooks/useBoolean";
 import * as routeUrl from "../../routes/routeUrl";
 import { AppServices } from "../../services/services";
-import html2pdf from "html2pdf.js";
-import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 
 export const ClientsTableHeader = (tableInfo: any) => {
   const navigate = useNavigate();
@@ -68,19 +68,19 @@ export const ClientsTableHeader = (tableInfo: any) => {
     {
       Header: "Product Category",
       accessor: "productCategoryName",
-      // Cell: ({ row }: any) => {
-      //   return (
-      //     <div>
-      //       {row.original.productCategory.map((item: any, index: number) => (
-      //         <span key={item.id}>
-      //           {" "}
-      //           {item?.productCategory.name}
-      //           {index !== row.original.productCategory.length - 1 ? "," : ""}
-      //         </span>
-      //       ))}
-      //     </div>
-      //   );
-      // },
+      Cell: ({ row }: any) => {
+        return (
+          <div>
+            {row.original.productCategory.map((item: any, index: number) => (
+              <span key={item.id}>
+                {" "}
+                {item?.productCategoryName}
+                {index !== row.original.productCategory.length - 1 ? "," : ""}
+              </span>
+            ))}
+          </div>
+        );
+      },
     },
     {
       Header: "Action",
@@ -112,6 +112,17 @@ export const ClientsTableHeader = (tableInfo: any) => {
             });
         };
 
+        const getProductCategories = (productCategory: any) => {
+          if (!productCategory || !Array.isArray(productCategory)) {
+            return "";
+          }
+
+          return productCategory
+            .map((item) => item?.productCategoryName)
+            .filter((name) => !!name)
+            .join(", ");
+        };
+
         const downloadPdf = () => {
           // Convert JSON to HTML (format as needed)
           const htmlContent = `
@@ -141,9 +152,11 @@ export const ClientsTableHeader = (tableInfo: any) => {
           <div style="display: flex; flex-direction: row; align-items: center; "><h5>Phone Number:</h5> <span style="margin-left:1rem">${
             row?.original.phoneNumber
           }</span> </div>
-          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Product Category:</h5> <span style="margin-left:1rem">${
-            row?.original.productName
-          }</span> </div>
+          <div style="display: flex; flex-direction: row; align-items: center; "><h5>Product Category:</h5> 
+          <span style="margin-left:1rem">${getProductCategories(
+            row?.original.productCategory
+          )}</span>
+          </div>
           </div>
           </div>
           `;
