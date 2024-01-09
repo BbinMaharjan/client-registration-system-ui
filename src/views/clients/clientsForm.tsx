@@ -156,6 +156,16 @@ const ClientsForm = (): React.JSX.Element => {
                     >
                       <Grid item xs={2} sm={4} md={4}>
                         <FormControl
+                          control="select"
+                          name="productId"
+                          label="Select Products *"
+                          variant="outlined"
+                          required
+                          options={ProductsListOption}
+                        />
+                      </Grid>
+                      <Grid item xs={2} sm={4} md={4}>
+                        <FormControl
                           control="input"
                           name="firstName"
                           label="First Name"
@@ -211,17 +221,6 @@ const ClientsForm = (): React.JSX.Element => {
                           label="Email"
                           variant="outlined"
                           required
-                        />
-                      </Grid>
-
-                      <Grid item xs={2} sm={4} md={4}>
-                        <FormControl
-                          control="select"
-                          name="productId"
-                          label="Products"
-                          variant="outlined"
-                          required
-                          options={ProductsListOption}
                         />
                       </Grid>
                     </Grid>

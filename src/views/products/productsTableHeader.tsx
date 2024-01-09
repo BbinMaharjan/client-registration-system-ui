@@ -38,6 +38,11 @@ export const ProductsTableHeader = (tableInfo: any) => {
       Header: "Model",
       accessor: "model",
     },
+
+    {
+      Header: "Product Category",
+      accessor: "productCategoryName",
+    },
     {
       Header: "Price",
       accessor: "price",
@@ -48,11 +53,6 @@ export const ProductsTableHeader = (tableInfo: any) => {
           </Stack>
         );
       },
-    },
-
-    {
-      Header: "Product Category",
-      accessor: "productCategoryName",
     },
     {
       Header: "Action",

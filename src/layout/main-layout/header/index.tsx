@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 
 // material-ui
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 // project imports
@@ -57,7 +57,15 @@ const Header = ({ handleLeftDrawerToggle }: any) => {
       </Box>
 
       {/* header search */}
-
+      <Typography
+        component="span"
+        variant="h4"
+        sx={{ fontWeight: 300, fontSize: "2.5rem" }}
+        color={theme.palette.primary.main}
+        marginRight={"8px"}
+      >
+        Client Registration System
+      </Typography>
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ flexGrow: 1 }} />
 

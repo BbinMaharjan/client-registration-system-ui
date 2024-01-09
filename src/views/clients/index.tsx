@@ -80,7 +80,7 @@ const Clients = (): React.JSX.Element => {
   return (
     <Fragment>
       <Box>
-        <Grid container spacing={2} mb={1} alignItems={"center"}>
+        <Grid container alignItems={"center"}>
           <Grid item xs={12}>
             <Stack
               direction="row"
@@ -92,22 +92,9 @@ const Clients = (): React.JSX.Element => {
                 variant="h1"
                 fontSize={25}
               >
-                {routeUrl?.CLIENT.name}
+                View {routeUrl?.CLIENT.name} List
               </Typography>
-              <Stack gap={2} sx={{ py: "1rem" }} direction="row">
-                <AnimateButton>
-                  <Button
-                    size="medium"
-                    type="button"
-                    variant="contained"
-                    color="secondary"
-                    fullWidth
-                    onClick={handleExport}
-                    startIcon={<CloudDownloadIcon />}
-                  >
-                    Export
-                  </Button>
-                </AnimateButton>
+              <Stack gap={2} sx={{ py: "0.5rem" }} direction="row">
                 <AnimateButton>
                   <Button
                     size="medium"
@@ -118,7 +105,20 @@ const Clients = (): React.JSX.Element => {
                     onClick={handleAdd}
                     startIcon={<AddIcon />}
                   >
-                    Add
+                    Add Client
+                  </Button>
+                </AnimateButton>
+                <AnimateButton>
+                  <Button
+                    size="medium"
+                    type="button"
+                    variant="contained"
+                    color="secondary"
+                    fullWidth
+                    onClick={handleExport}
+                    startIcon={<CloudDownloadIcon />}
+                  >
+                    Download Excel
                   </Button>
                 </AnimateButton>
               </Stack>
@@ -129,16 +129,16 @@ const Clients = (): React.JSX.Element => {
 
       <Box>
         <Stack
-          gap={2}
-          sx={{ py: "1rem" }}
+          // gap={1}
+          sx={{ py: "0.5rem" }}
           direction="row"
-          justifyContent="space-between"
+          justifyContent="center"
           alignItems="start"
         >
           <SearchInput
-            width={"30%"}
+            width={"50%"}
             name="searchKeyword"
-            placeholder="Search"
+            placeholder="Search........"
             label="Search"
             onChange={debouncedSearchChangeHandler}
           />{" "}

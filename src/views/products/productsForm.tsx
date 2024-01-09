@@ -151,9 +151,19 @@ const ProductsForm = (): React.JSX.Element => {
                     >
                       <Grid item xs={2} sm={4} md={4}>
                         <FormControl
+                          control="select"
+                          name="productCategoryId"
+                          label="Select Product Category *"
+                          variant="outlined"
+                          required
+                          options={ProductCategoryOption}
+                        />
+                      </Grid>
+                      <Grid item xs={2} sm={4} md={4}>
+                        <FormControl
                           control="input"
                           name="name"
-                          label="Name"
+                          label="Product Name"
                           variant="outlined"
                           required
                         />
@@ -186,16 +196,6 @@ const ProductsForm = (): React.JSX.Element => {
                           type="number"
                           max={8}
                           required
-                        />
-                      </Grid>
-                      <Grid item xs={2} sm={4} md={4}>
-                        <FormControl
-                          control="select"
-                          name="productCategoryId"
-                          label="Product Category"
-                          variant="outlined"
-                          required
-                          options={ProductCategoryOption}
                         />
                       </Grid>
                     </Grid>

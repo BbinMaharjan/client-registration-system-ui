@@ -60,7 +60,7 @@ const Products = (): React.JSX.Element => {
   return (
     <Fragment>
       <Box>
-        <Grid container spacing={2} mb={1} alignItems={"center"}>
+        <Grid container spacing={1} alignItems={"center"}>
           <Grid item xs={12}>
             <Stack
               direction="row"
@@ -72,7 +72,7 @@ const Products = (): React.JSX.Element => {
                 variant="h1"
                 fontSize={25}
               >
-                {routeUrl?.PRODUCTS.name}
+                View {routeUrl?.PRODUCTS.name} List
               </Typography>
               <AnimateButton>
                 <Button
@@ -84,7 +84,7 @@ const Products = (): React.JSX.Element => {
                   onClick={handleAdd}
                   startIcon={<AddIcon />}
                 >
-                  Add
+                  Add Product
                 </Button>
               </AnimateButton>
             </Stack>
@@ -95,15 +95,15 @@ const Products = (): React.JSX.Element => {
       <Box>
         <Stack
           gap={2}
-          sx={{ py: "1rem" }}
+          sx={{ py: "0.5rem" }}
           direction="row"
-          justifyContent="start"
+          justifyContent="center"
           alignItems="start"
         >
           <SearchInput
-            width={"30%"}
+            width={"50%"}
             name="searchKeyword"
-            placeholder="Search"
+            placeholder="Search........"
             label="Search"
             onChange={debouncedSearchChangeHandler}
           />

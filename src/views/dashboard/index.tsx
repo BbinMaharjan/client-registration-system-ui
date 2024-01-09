@@ -11,18 +11,18 @@ const Dashboard = () => {
     <Stack
       display={"flex"}
       direction="row"
-      justifyContent={"center"}
-      alignItems={"center"}
-      sx={{ padding: 25 }}
+      // justifyContent={"center"}
+      // alignItems={"center"}
+      // sx={{ padding: 25 }}
     >
       <Typography
         color={theme.palette.primary.main}
         gutterBottom
-        variant={"h1"}
+        variant={"h6"}
         fontSize={40}
         style={{ width: "100%" }}
       >
-        Client Registration System
+        Welcome To Dashboard
       </Typography>
     </Stack>
   );

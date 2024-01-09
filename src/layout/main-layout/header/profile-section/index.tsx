@@ -81,59 +81,44 @@ const ProfileSection = () => {
 
   return (
     <>
-      {/* <Typography
-        variant="body1"
-        color={theme.palette.primary.main}
-        marginRight={"8px"}
-      >
-        {Today}
-      </Typography> */}
-      <Chip
+      <Stack direction="column" alignItems="start">
+        <Typography
+          component="span"
+          variant="h4"
+          sx={{ fontWeight: 600, fontSize: "1rem" }}
+          color={theme.palette.primary.main}
+          marginRight={"8px"}
+        >
+          {userDetails?.fullName}
+        </Typography>
+        <Typography
+          component="span"
+          variant="body1"
+          sx={{ fontWeight: 100 }}
+          color={theme.palette.secondary.main}
+          marginRight={"8px"}
+        >
+          {userDetails?.email}
+        </Typography>
+      </Stack>
+      <Avatar
         sx={{
-          height: "48px",
-          alignItems: "center",
-          borderRadius: "30px",
-          transition: "all .2s ease-in-out",
-          borderColor: theme.palette.primary.light,
-          backgroundColor: theme.palette.primary.light,
-          '&[aria-controls="menu-list-grow"], &:hover': {
-            borderColor: theme.palette.primary.main,
-            background: `${theme.palette.primary.main}!important`,
-            color: theme.palette.primary.light,
-            "& svg": {
-              stroke: theme.palette.primary.light,
-            },
-          },
-          "& .MuiChip-label": {
-            lineHeight: 0,
-          },
+          bgcolor: theme.palette.primary.main,
+          cursor: "pointer",
+          color: "#fff",
+          borderRadius: "25px",
         }}
-        icon={
-          <Avatar
-            sx={{
-              bgcolor: theme.palette.primary.main,
-              cursor: "pointer",
-              color: "#fff",
-              borderRadius: "25px",
-            }}
-            variant="rounded"
-            ref={anchorRef}
-            aria-controls={open ? "menu-list-grow" : undefined}
-            aria-haspopup="true"
-            onClick={handleToggle}
-          >
-            <Typography variant="h5" color="white">
-              {userDetails?.fullName?.charAt(0)}
-            </Typography>
-          </Avatar>
-        }
-        variant="outlined"
+        variant="rounded"
         ref={anchorRef}
         aria-controls={open ? "menu-list-grow" : undefined}
         aria-haspopup="true"
         onClick={handleToggle}
-        color="primary"
-      />
+      >
+        <Typography variant="h5" color="white">
+          {userDetails?.fullName?.charAt(0)}
+        </Typography>
+      </Avatar>
+
       <Popper
         placement="bottom-end"
         open={open}
@@ -163,31 +148,6 @@ const ProfileSection = () => {
                   boxShadow
                   shadow={theme.shadows[16]}
                 >
-                  <Box sx={{ px: 1, pt: 1 }}>
-                    <Stack
-                      direction="column"
-                      spacing={0.1}
-                      alignItems="start"
-                      sx={{ p: 1 }}
-                    >
-                      <Typography
-                        component="span"
-                        variant="h4"
-                        sx={{ fontWeight: 600, fontSize: "1.2rem" }}
-                        color={theme.palette.primary.main}
-                      >
-                        {userDetails?.fullName}
-                      </Typography>
-                      <Typography
-                        component="span"
-                        variant="h6"
-                        sx={{ fontWeight: 400 }}
-                        color={theme.palette.secondary.main}
-                      >
-                        {userDetails?.email}
-                      </Typography>
-                    </Stack>
-                  </Box>
                   <Box sx={{ p: 1 }}>
                     <List
                       component="nav"
@@ -217,7 +177,7 @@ const ProfileSection = () => {
                         </ListItemIcon>
                         <ListItemText
                           primary={
-                            <Typography variant="body2">Logout</Typography>
+                            <Typography variant="body2">EXIT</Typography>
                           }
                         />
                       </ListItemButton>
